@@ -1,5 +1,5 @@
 # Meadow
-High-availability platform for poor and reasonable people.
+High-availability platform for financially reasonable people.
 
 ## Goals:
 - Machine provisioning from Metal through netboot or local install (PXE and agents)
