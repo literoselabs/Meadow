@@ -20,10 +20,16 @@ High-availability platform for financially reasonable people.
 - ML workloads (serving PyTorch and TF models from different nodes)?
 - Networking abilities (automatic VPN between nodes)
 - No Master and Worker nodes, although Voter nodes (like RPi) can be kept just to reach consensus
+- Temporary compute and storage nodes
+- Ability to move data through and to a temporary node 
 - Benchmarks hardware for capabilties
 - Configurable replication options
 - Good API
 - Web and CLI interfaces
+
+## Provisioning:
+- Bootstrap new server using commandline interface configurator.
+- Provision new servers by allowing boot from PXE or small local agent providing commandline access while signalling host to bootstrap (service discovery)
 
 ## Technologies:
 - Flask?
