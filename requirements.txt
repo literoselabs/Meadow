@@ -4,6 +4,12 @@ uvicorn[standard]
 
 # Networking
 requests
+python-hosts
 
 # Provisioning
 pypxe
+
+# Utils
+GitPython
+python-apt
+apscheduler

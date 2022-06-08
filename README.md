@@ -1,5 +1,5 @@
 # Meadow
-High-availability platform for financially reasonable people.
+High-availability platform for financially reasonable (poor) people.
 
 ## Goals:
 - Machine provisioning from Metal through netboot or local install (PXE and agents)
@@ -20,6 +20,7 @@ High-availability platform for financially reasonable people.
 - ML workloads (serving PyTorch and TF models from different nodes)?
 - Networking abilities (automatic VPN between nodes)
 - No Master and Worker nodes, although Voter nodes (like RPi) can be kept just to reach consensus
+- Editing each node's '/etc/hosts' file as a pseudo-DNS server
 - Temporary compute and storage nodes
 - Ability to move data through and to a temporary node 
 - Benchmarks hardware for capabilties
@@ -39,3 +40,15 @@ High-availability platform for financially reasonable people.
 - Written in Python 3.8 for compatibility
 - Runs on Ubuntu
 - SSH for commands
+- PySyncObj for distributed objects
+- '/etc/hosts' editing for pseudo-DNS
+
+## Prerequisites:
+- Python 3 as an absolute minimum
+- Bootstrap host should have prerequiste packages listed in 'data/packages.json' installed but it will attempt to install those at best-effort (may fail) only.
+- Hosts without PXE support require absolute minimum and manual launch of agent.
+- Hosts supporting PXE 
+
+## Usage
+1. Run the following command for usage guidance after acquiring project files:
+```python3 meadow.py```

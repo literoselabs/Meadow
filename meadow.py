@@ -1,5 +1,9 @@
-import uvicorn
-import api
+import services.dependencies.prerequisite as prerequisite
 
-if __name__ == "__main__":
-    uvicorn.run(api.server, host="0.0.0.0", port=8000)
+# Check prerequisites are installed or install them
+check = prerequisite.check()
+if not check:
+    prerequisite.install_prerequisites()
+
+import api
+api.start()
