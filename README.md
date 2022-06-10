@@ -24,6 +24,12 @@ High-availability platform for financially reasonable (poor) people.
 - Temporary compute and storage nodes
 - Ability to move data through and to a temporary node 
 - Benchmarks hardware for capabilties
+- API publishing and limiting capabilities
+- API gateway like a proxy with quota tracking
+- Remote desktop and serial port access to VMs
+- Environment parameter stores 
+- Centralized logging
+
 - Configurable replication options
 - Good API
 - Web and CLI interfaces
