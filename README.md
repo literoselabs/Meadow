@@ -55,6 +55,13 @@ High-availability platform for financially reasonable (poor) people.
 - Hosts without PXE support require absolute minimum and manual launch of agent.
 - Hosts supporting PXE 
 
-## Usage
-1. Run the following command for usage guidance after acquiring project files:
+## Usage (bootstrap environment)
+- Run the following command for usage guidance after acquiring project files (if on Ubuntu):
 ```python3 meadow.py```
+- Alternatively, run the following file for Docker running a single node:
+```docker-compose up```
+
+## Ideas:
+- Use Ansible for a generic OS package manager.
+- Use Consul and Vault by Hashicorp for connecting services and storing secrets.
+- Kubernetes used for hosting network services outside of Python with said language to interface.

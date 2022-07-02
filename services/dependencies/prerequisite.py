@@ -1,25 +1,36 @@
-import os
-import sys
-import json
 import subprocess
 
-def get_packages(package_file='data/packages.json'):
-    with open(package_file, 'r') as infile:
-        packages = json.load(infile)
-        packages = packages['prerequisite']
-    return packages
+from packages import pkgMgr
 
-def install_prerequisites(packages):
+from ..utils import utils
+
+
+def install(required):
+    if not required:
+        return required
     subprocess.call(['sudo', 'apt', 'update'])
-    subprocess.call(['sudo', 'apt', 'install', *packages, '-y'])
-    # Restart script with same arguments
-    os.execv(sys.argv[0], sys.argv)
+    subprocess.call(['sudo', 'apt', 'install', '-y', *required])
 
-def check():
-    packages = get_packages()
-    for package in packages:
-        out = subprocess.call(f'dpkg -s {package}')
-        # TODO: Ensure this actually works to check package is installed
-        if not out:
-            return False
-    return True
+    failed = find_missing(required)
+    if not failed:
+        utils.restart_script()
+
+    pkgs = ', '.join(failed)
+    raise Exception(f'Failed to install the following packages (you may try manually): {pkgs}')
+
+
+def find_missing(required=None):
+    # Get prerequisite section of needed packages
+    if not required:
+        required = pkgMgr.get_section('prerequisites')
+    # Get all installed packages listed
+    process = subprocess.Popen(['apt', 'list', '--installed'],
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE)
+    stdout, stderr = process.communicate()
+    stdout = stdout.decode()
+    installed = stdout.splitlines()
+    installed = [line.split('/')[0] for line in installed]
+    # Return packages required but not present
+    missing = [package for package in required if package not in installed]
+    return missing

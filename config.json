@@ -1,4 +1,4 @@
 {
     "repository": "https://github.com/literoselabs/Meadow",
-    "bootstrap_dir": "/tmp/Meadow"      
+    "install_dir": "/meadow"      
 }

@@ -8,6 +8,7 @@ python-hosts
 
 # Provisioning
 pypxe
+netifaces
 
 # Utils
 GitPython
