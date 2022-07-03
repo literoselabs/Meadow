@@ -5,12 +5,18 @@ uvicorn[standard]
 # Networking
 requests
 python-hosts
+netifaces
+
+# Booting
+pypxe
 
 # Provisioning
-pypxe
-netifaces
+ansible
+ansible-runner
+
+# Services
+kubernetes
 
 # Utils
 GitPython
-python-apt
 apscheduler
