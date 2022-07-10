@@ -65,3 +65,14 @@ High-availability platform for financially reasonable (poor) people.
 - Use Ansible for a generic OS package manager.
 - Use Consul and Vault by Hashicorp for connecting services and storing secrets.
 - Kubernetes used for hosting network services outside of Python with said language to interface.
+
+Run Kubernetes with the following on each node;
+- Hashicorp Consul to connect services together
+- Hashicorp Vault to store secrets
+- DHCP, DNS and PXE servers
+- Additional services like Minio for S3
+
+Essentially, any services are hosted as the above. Architectural stuff can run bare metal tho, things like;
+- DRDB distributed storage stuff
+
+Look into using Cobbler, Foreman, MAAS by Canonical or just use the revised OpenStack guide after figuring out a usable minimum HA setup.
